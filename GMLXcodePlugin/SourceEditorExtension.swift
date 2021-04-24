@@ -1,9 +1,8 @@
 //
 //  SourceEditorExtension.swift
-//  GMLXcodeSourceEdit
+//  GMLXcodePlugin
 //
-//  Created by apple on 2020/5/22.
-//  Copyright © 2020 GML. All rights reserved.
+//  Created by GML on 2021/4/23.
 //
 
 import Foundation
@@ -17,24 +16,23 @@ class SourceEditorExtension: NSObject, XCSourceEditorExtension {
     }
     */
     
-    
     var commandDefinitions: [[XCSourceEditorCommandDefinitionKey: Any]] {
         // If your extension needs to return a collection of command definitions that differs from those in its Info.plist, implement this optional property getter.
         return [
-            commandInfo(name: "实现Copy协议", className: CopyEditorCommand.self),
-            commandInfo(name: "get生成器", className: GetMethodBuilder.self)
+            commandInfo(name: "Get Property Method", className: PropertyGetCommand.self)
         ]
     }
 }
 
 private extension SourceEditorExtension {
     func commandInfo(name: String, className: AnyClass) -> [XCSourceEditorCommandDefinitionKey : Any] {
+        let classNameStr = NSStringFromClass(className)
         return commandInfo(name: name,
-                           identifier: NSStringFromClass(className),
-                           className: className)
+                           identifier: classNameStr,
+                           className: classNameStr)
     }
     
-    func commandInfo(name: String, identifier: String, className: AnyClass) -> [XCSourceEditorCommandDefinitionKey : Any] {
+    func commandInfo(name: String, identifier: String, className: String) -> [XCSourceEditorCommandDefinitionKey : Any] {
         return [
             .nameKey : name,
             .identifierKey : identifier.linkMyDomainName,
@@ -47,6 +45,6 @@ private extension SourceEditorExtension {
 
 private extension String {
     var linkMyDomainName : String {
-        return "com.gml.xcodesourceEdit." + self
+        return "com.gml.xcodeplugin.xcodesourceEdit." + self
     }
 }

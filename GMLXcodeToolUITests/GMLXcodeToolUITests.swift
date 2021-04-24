@@ -1,14 +1,13 @@
 //
-//  XcodeSourceEditUITests.swift
-//  XcodeSourceEditUITests
+//  GMLXcodeToolUITests.swift
+//  GMLXcodeToolUITests
 //
-//  Created by apple on 2020/5/22.
-//  Copyright © 2020 GML. All rights reserved.
+//  Created by GML on 2021/4/23.
 //
 
 import XCTest
 
-class XcodeSourceEditUITests: XCTestCase {
+class GMLXcodeToolUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -35,7 +34,7 @@ class XcodeSourceEditUITests: XCTestCase {
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
             // This measures how long it takes to launch your application.
-            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
+            measure(metrics: [XCTApplicationLaunchMetric()]) {
                 XCUIApplication().launch()
             }
         }

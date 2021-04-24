@@ -1,0 +1,3 @@
+[submodule "GMLFoundationExtension"]
+	path = GMLFoundationExtension
+	url = git@github.com:root338/GMLFoundationExtension.git

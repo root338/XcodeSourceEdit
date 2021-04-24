@@ -1,0 +1,800 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6D3E623F2633A6B0007BDAE5 /* PropertyMethodBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E623E2633A6B0007BDAE5 /* PropertyMethodBuilder.swift */; };
+		6D3E62482633AA35007BDAE5 /* PropertyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E62472633AA35007BDAE5 /* PropertyModel.swift */; };
+		6D3EBA24263444B800111706 /* GMLStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3EBA1C263443B300111706 /* GMLStringExtension.swift */; };
+		6D3EBA3E26345D1A00111706 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3EBA3626345CDF00111706 /* StringExtension.swift */; };
+		6D65C382263473D7001ED7F1 /* XCSourceTextRangeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65C381263473D7001ED7F1 /* XCSourceTextRangeExtension.swift */; };
+		6DDCE9F22632FF82008A7096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDCE9F12632FF82008A7096 /* AppDelegate.swift */; };
+		6DDCE9F42632FF82008A7096 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDCE9F32632FF82008A7096 /* ViewController.swift */; };
+		6DDCE9F62632FF85008A7096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DDCE9F52632FF85008A7096 /* Assets.xcassets */; };
+		6DDCE9F92632FF85008A7096 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DDCE9F72632FF85008A7096 /* Main.storyboard */; };
+		6DDCEA052632FF85008A7096 /* GMLXcodeToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDCEA042632FF85008A7096 /* GMLXcodeToolTests.swift */; };
+		6DDCEA102632FF85008A7096 /* GMLXcodeToolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDCEA0F2632FF85008A7096 /* GMLXcodeToolUITests.swift */; };
+		6DDCEA272632FF9B008A7096 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDCEA262632FF9B008A7096 /* Cocoa.framework */; };
+		6DDCEA2C2632FF9B008A7096 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDCEA2B2632FF9B008A7096 /* SourceEditorExtension.swift */; };
+		6DDCEA2E2632FF9B008A7096 /* PropertyGetCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDCEA2D2632FF9B008A7096 /* PropertyGetCommand.swift */; };
+		6DDCEA332632FF9B008A7096 /* GMLXcodePlugin.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6DDCEA242632FF9B008A7096 /* GMLXcodePlugin.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6DDCEA60263308D8008A7096 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDCEA5626330848008A7096 /* XcodeKit.framework */; };
+		6DDCEA61263308D8008A7096 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDCEA5626330848008A7096 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6DDCEA012632FF85008A7096 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DDCE9E62632FF82008A7096 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DDCE9ED2632FF82008A7096;
+			remoteInfo = GMLXcodeTool;
+		};
+		6DDCEA0C2632FF85008A7096 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DDCE9E62632FF82008A7096 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DDCE9ED2632FF82008A7096;
+			remoteInfo = GMLXcodeTool;
+		};
+		6DDCEA312632FF9B008A7096 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DDCE9E62632FF82008A7096 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DDCEA232632FF9B008A7096;
+			remoteInfo = GMLXcodePlugin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6DDCEA372632FF9B008A7096 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6DDCEA332632FF9B008A7096 /* GMLXcodePlugin.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DDCEA62263308D8008A7096 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6DDCEA61263308D8008A7096 /* XcodeKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6D3E623E2633A6B0007BDAE5 /* PropertyMethodBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyMethodBuilder.swift; sourceTree = "<group>"; };
+		6D3E62472633AA35007BDAE5 /* PropertyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyModel.swift; sourceTree = "<group>"; };
+		6D3EBA1C263443B300111706 /* GMLStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GMLStringExtension.swift; path = GMLFoundationExtension/GMLFoundationExtension/Classes/StringExtension/GMLStringExtension.swift; sourceTree = "<group>"; };
+		6D3EBA3626345CDF00111706 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = GMLFoundationExtension/GMLFoundationExtension/Classes/StringExtension/StringExtension.swift; sourceTree = "<group>"; };
+		6D65C381263473D7001ED7F1 /* XCSourceTextRangeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCSourceTextRangeExtension.swift; sourceTree = "<group>"; };
+		6DDCE9EE2632FF82008A7096 /* GMLXcodeTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GMLXcodeTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DDCE9F12632FF82008A7096 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6DDCE9F32632FF82008A7096 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6DDCE9F52632FF85008A7096 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6DDCE9F82632FF85008A7096 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6DDCE9FA2632FF85008A7096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DDCE9FB2632FF85008A7096 /* GMLXcodeTool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GMLXcodeTool.entitlements; sourceTree = "<group>"; };
+		6DDCEA002632FF85008A7096 /* GMLXcodeToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GMLXcodeToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DDCEA042632FF85008A7096 /* GMLXcodeToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLXcodeToolTests.swift; sourceTree = "<group>"; };
+		6DDCEA062632FF85008A7096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DDCEA0B2632FF85008A7096 /* GMLXcodeToolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GMLXcodeToolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DDCEA0F2632FF85008A7096 /* GMLXcodeToolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLXcodeToolUITests.swift; sourceTree = "<group>"; };
+		6DDCEA112632FF85008A7096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DDCEA242632FF9B008A7096 /* GMLXcodePlugin.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GMLXcodePlugin.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DDCEA262632FF9B008A7096 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		6DDCEA2B2632FF9B008A7096 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
+		6DDCEA2D2632FF9B008A7096 /* PropertyGetCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyGetCommand.swift; sourceTree = "<group>"; };
+		6DDCEA2F2632FF9B008A7096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DDCEA302632FF9B008A7096 /* GMLXcodePlugin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GMLXcodePlugin.entitlements; sourceTree = "<group>"; };
+		6DDCEA5626330848008A7096 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6DDCE9EB2632FF82008A7096 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DDCE9FD2632FF85008A7096 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DDCEA082632FF85008A7096 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DDCEA212632FF9B008A7096 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DDCEA272632FF9B008A7096 /* Cocoa.framework in Frameworks */,
+				6DDCEA60263308D8008A7096 /* XcodeKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6D3E62462633AA20007BDAE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6D3E62472633AA35007BDAE5 /* PropertyModel.swift */,
+				6D65C381263473D7001ED7F1 /* XCSourceTextRangeExtension.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6DDCE9E52632FF82008A7096 = {
+			isa = PBXGroup;
+			children = (
+				6D3EBA1C263443B300111706 /* GMLStringExtension.swift */,
+				6D3EBA3626345CDF00111706 /* StringExtension.swift */,
+				6DDCE9F02632FF82008A7096 /* GMLXcodeTool */,
+				6DDCEA032632FF85008A7096 /* GMLXcodeToolTests */,
+				6DDCEA0E2632FF85008A7096 /* GMLXcodeToolUITests */,
+				6DDCEA2A2632FF9B008A7096 /* GMLXcodePlugin */,
+				6DDCEA252632FF9B008A7096 /* Frameworks */,
+				6DDCE9EF2632FF82008A7096 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6DDCE9EF2632FF82008A7096 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6DDCE9EE2632FF82008A7096 /* GMLXcodeTool.app */,
+				6DDCEA002632FF85008A7096 /* GMLXcodeToolTests.xctest */,
+				6DDCEA0B2632FF85008A7096 /* GMLXcodeToolUITests.xctest */,
+				6DDCEA242632FF9B008A7096 /* GMLXcodePlugin.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6DDCE9F02632FF82008A7096 /* GMLXcodeTool */ = {
+			isa = PBXGroup;
+			children = (
+				6DDCE9F12632FF82008A7096 /* AppDelegate.swift */,
+				6DDCE9F32632FF82008A7096 /* ViewController.swift */,
+				6DDCE9F52632FF85008A7096 /* Assets.xcassets */,
+				6DDCE9F72632FF85008A7096 /* Main.storyboard */,
+				6DDCE9FA2632FF85008A7096 /* Info.plist */,
+				6DDCE9FB2632FF85008A7096 /* GMLXcodeTool.entitlements */,
+			);
+			path = GMLXcodeTool;
+			sourceTree = "<group>";
+		};
+		6DDCEA032632FF85008A7096 /* GMLXcodeToolTests */ = {
+			isa = PBXGroup;
+			children = (
+				6DDCEA042632FF85008A7096 /* GMLXcodeToolTests.swift */,
+				6DDCEA062632FF85008A7096 /* Info.plist */,
+			);
+			path = GMLXcodeToolTests;
+			sourceTree = "<group>";
+		};
+		6DDCEA0E2632FF85008A7096 /* GMLXcodeToolUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6DDCEA0F2632FF85008A7096 /* GMLXcodeToolUITests.swift */,
+				6DDCEA112632FF85008A7096 /* Info.plist */,
+			);
+			path = GMLXcodeToolUITests;
+			sourceTree = "<group>";
+		};
+		6DDCEA252632FF9B008A7096 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6DDCEA5626330848008A7096 /* XcodeKit.framework */,
+				6DDCEA262632FF9B008A7096 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6DDCEA2A2632FF9B008A7096 /* GMLXcodePlugin */ = {
+			isa = PBXGroup;
+			children = (
+				6DDCEA2B2632FF9B008A7096 /* SourceEditorExtension.swift */,
+				6DDCEA2D2632FF9B008A7096 /* PropertyGetCommand.swift */,
+				6D3E62462633AA20007BDAE5 /* Model */,
+				6DDCEA4D263307A1008A7096 /* ClassService */,
+				6DDCEA2F2632FF9B008A7096 /* Info.plist */,
+				6DDCEA302632FF9B008A7096 /* GMLXcodePlugin.entitlements */,
+			);
+			path = GMLXcodePlugin;
+			sourceTree = "<group>";
+		};
+		6DDCEA4D263307A1008A7096 /* ClassService */ = {
+			isa = PBXGroup;
+			children = (
+				6D3E623E2633A6B0007BDAE5 /* PropertyMethodBuilder.swift */,
+			);
+			path = ClassService;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6DDCE9ED2632FF82008A7096 /* GMLXcodeTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DDCEA142632FF85008A7096 /* Build configuration list for PBXNativeTarget "GMLXcodeTool" */;
+			buildPhases = (
+				6DDCE9EA2632FF82008A7096 /* Sources */,
+				6DDCE9EB2632FF82008A7096 /* Frameworks */,
+				6DDCE9EC2632FF82008A7096 /* Resources */,
+				6DDCEA372632FF9B008A7096 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6DDCEA322632FF9B008A7096 /* PBXTargetDependency */,
+			);
+			name = GMLXcodeTool;
+			productName = GMLXcodeTool;
+			productReference = 6DDCE9EE2632FF82008A7096 /* GMLXcodeTool.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6DDCE9FF2632FF85008A7096 /* GMLXcodeToolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DDCEA172632FF85008A7096 /* Build configuration list for PBXNativeTarget "GMLXcodeToolTests" */;
+			buildPhases = (
+				6DDCE9FC2632FF85008A7096 /* Sources */,
+				6DDCE9FD2632FF85008A7096 /* Frameworks */,
+				6DDCE9FE2632FF85008A7096 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6DDCEA022632FF85008A7096 /* PBXTargetDependency */,
+			);
+			name = GMLXcodeToolTests;
+			productName = GMLXcodeToolTests;
+			productReference = 6DDCEA002632FF85008A7096 /* GMLXcodeToolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6DDCEA0A2632FF85008A7096 /* GMLXcodeToolUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DDCEA1A2632FF85008A7096 /* Build configuration list for PBXNativeTarget "GMLXcodeToolUITests" */;
+			buildPhases = (
+				6DDCEA072632FF85008A7096 /* Sources */,
+				6DDCEA082632FF85008A7096 /* Frameworks */,
+				6DDCEA092632FF85008A7096 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6DDCEA0D2632FF85008A7096 /* PBXTargetDependency */,
+			);
+			name = GMLXcodeToolUITests;
+			productName = GMLXcodeToolUITests;
+			productReference = 6DDCEA0B2632FF85008A7096 /* GMLXcodeToolUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		6DDCEA232632FF9B008A7096 /* GMLXcodePlugin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DDCEA342632FF9B008A7096 /* Build configuration list for PBXNativeTarget "GMLXcodePlugin" */;
+			buildPhases = (
+				6DDCEA202632FF9B008A7096 /* Sources */,
+				6DDCEA212632FF9B008A7096 /* Frameworks */,
+				6DDCEA222632FF9B008A7096 /* Resources */,
+				6DDCEA62263308D8008A7096 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GMLXcodePlugin;
+			productName = GMLXcodePlugin;
+			productReference = 6DDCEA242632FF9B008A7096 /* GMLXcodePlugin.appex */;
+			productType = "com.apple.product-type.xcode-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6DDCE9E62632FF82008A7096 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					6DDCE9ED2632FF82008A7096 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					6DDCE9FF2632FF85008A7096 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 6DDCE9ED2632FF82008A7096;
+					};
+					6DDCEA0A2632FF85008A7096 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 6DDCE9ED2632FF82008A7096;
+					};
+					6DDCEA232632FF9B008A7096 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 6DDCE9E92632FF82008A7096 /* Build configuration list for PBXProject "GMLXcodeTool" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6DDCE9E52632FF82008A7096;
+			productRefGroup = 6DDCE9EF2632FF82008A7096 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6DDCE9ED2632FF82008A7096 /* GMLXcodeTool */,
+				6DDCE9FF2632FF85008A7096 /* GMLXcodeToolTests */,
+				6DDCEA0A2632FF85008A7096 /* GMLXcodeToolUITests */,
+				6DDCEA232632FF9B008A7096 /* GMLXcodePlugin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6DDCE9EC2632FF82008A7096 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DDCE9F62632FF85008A7096 /* Assets.xcassets in Resources */,
+				6DDCE9F92632FF85008A7096 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DDCE9FE2632FF85008A7096 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DDCEA092632FF85008A7096 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DDCEA222632FF9B008A7096 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6DDCE9EA2632FF82008A7096 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DDCE9F42632FF82008A7096 /* ViewController.swift in Sources */,
+				6DDCE9F22632FF82008A7096 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DDCE9FC2632FF85008A7096 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DDCEA052632FF85008A7096 /* GMLXcodeToolTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DDCEA072632FF85008A7096 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DDCEA102632FF85008A7096 /* GMLXcodeToolUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DDCEA202632FF9B008A7096 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DDCEA2C2632FF9B008A7096 /* SourceEditorExtension.swift in Sources */,
+				6D3E62482633AA35007BDAE5 /* PropertyModel.swift in Sources */,
+				6D3EBA3E26345D1A00111706 /* StringExtension.swift in Sources */,
+				6D65C382263473D7001ED7F1 /* XCSourceTextRangeExtension.swift in Sources */,
+				6D3E623F2633A6B0007BDAE5 /* PropertyMethodBuilder.swift in Sources */,
+				6DDCEA2E2632FF9B008A7096 /* PropertyGetCommand.swift in Sources */,
+				6D3EBA24263444B800111706 /* GMLStringExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6DDCEA022632FF85008A7096 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6DDCE9ED2632FF82008A7096 /* GMLXcodeTool */;
+			targetProxy = 6DDCEA012632FF85008A7096 /* PBXContainerItemProxy */;
+		};
+		6DDCEA0D2632FF85008A7096 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6DDCE9ED2632FF82008A7096 /* GMLXcodeTool */;
+			targetProxy = 6DDCEA0C2632FF85008A7096 /* PBXContainerItemProxy */;
+		};
+		6DDCEA322632FF9B008A7096 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6DDCEA232632FF9B008A7096 /* GMLXcodePlugin */;
+			targetProxy = 6DDCEA312632FF9B008A7096 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6DDCE9F72632FF85008A7096 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6DDCE9F82632FF85008A7096 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6DDCEA122632FF85008A7096 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6DDCEA132632FF85008A7096 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		6DDCEA152632FF85008A7096 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GMLXcodeTool/GMLXcodeTool.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 29W9687J6A;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = GMLXcodeTool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.YM.GMLXcodeTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6DDCEA162632FF85008A7096 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GMLXcodeTool/GMLXcodeTool.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 29W9687J6A;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = GMLXcodeTool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.YM.GMLXcodeTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		6DDCEA182632FF85008A7096 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 29W9687J6A;
+				INFOPLIST_FILE = GMLXcodeToolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.YM.GMLXcodeToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GMLXcodeTool.app/Contents/MacOS/GMLXcodeTool";
+			};
+			name = Debug;
+		};
+		6DDCEA192632FF85008A7096 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 29W9687J6A;
+				INFOPLIST_FILE = GMLXcodeToolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.YM.GMLXcodeToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GMLXcodeTool.app/Contents/MacOS/GMLXcodeTool";
+			};
+			name = Release;
+		};
+		6DDCEA1B2632FF85008A7096 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 29W9687J6A;
+				INFOPLIST_FILE = GMLXcodeToolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.YM.GMLXcodeToolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = GMLXcodeTool;
+			};
+			name = Debug;
+		};
+		6DDCEA1C2632FF85008A7096 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 29W9687J6A;
+				INFOPLIST_FILE = GMLXcodeToolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.YM.GMLXcodeToolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = GMLXcodeTool;
+			};
+			name = Release;
+		};
+		6DDCEA352632FF9B008A7096 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GMLXcodePlugin/GMLXcodePlugin.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 29W9687J6A;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = GMLXcodePlugin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.YM.GMLXcodeTool.GMLXcodePlugin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6DDCEA362632FF9B008A7096 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GMLXcodePlugin/GMLXcodePlugin.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 29W9687J6A;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = GMLXcodePlugin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.YM.GMLXcodeTool.GMLXcodePlugin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6DDCE9E92632FF82008A7096 /* Build configuration list for PBXProject "GMLXcodeTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DDCEA122632FF85008A7096 /* Debug */,
+				6DDCEA132632FF85008A7096 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6DDCEA142632FF85008A7096 /* Build configuration list for PBXNativeTarget "GMLXcodeTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DDCEA152632FF85008A7096 /* Debug */,
+				6DDCEA162632FF85008A7096 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6DDCEA172632FF85008A7096 /* Build configuration list for PBXNativeTarget "GMLXcodeToolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DDCEA182632FF85008A7096 /* Debug */,
+				6DDCEA192632FF85008A7096 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6DDCEA1A2632FF85008A7096 /* Build configuration list for PBXNativeTarget "GMLXcodeToolUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DDCEA1B2632FF85008A7096 /* Debug */,
+				6DDCEA1C2632FF85008A7096 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6DDCEA342632FF9B008A7096 /* Build configuration list for PBXNativeTarget "GMLXcodePlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DDCEA352632FF9B008A7096 /* Debug */,
+				6DDCEA362632FF9B008A7096 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6DDCE9E62632FF82008A7096 /* Project object */;
+}
