@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18A2FD90263559A2004D555E /* CreationCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A2FD8F263559A2004D555E /* CreationCodeHelper.swift */; };
+		18A2FD97263559FD004D555E /* CreationCodeHelper+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A2FD96263559FD004D555E /* CreationCodeHelper+UIKit.swift */; };
+		18A2FDA526355FCB004D555E /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDCEA5626330848008A7096 /* XcodeKit.framework */; };
+		18A2FDA626355FCB004D555E /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDCEA5626330848008A7096 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18A2FDAF26357E9F004D555E /* AddCodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A2FDAE26357E9F004D555E /* AddCodeConfiguration.swift */; };
 		6D3E623F2633A6B0007BDAE5 /* PropertyMethodBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E623E2633A6B0007BDAE5 /* PropertyMethodBuilder.swift */; };
 		6D3E62482633AA35007BDAE5 /* PropertyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E62472633AA35007BDAE5 /* PropertyModel.swift */; };
 		6D3EBA24263444B800111706 /* GMLStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3EBA1C263443B300111706 /* GMLStringExtension.swift */; };
@@ -22,8 +27,6 @@
 		6DDCEA2C2632FF9B008A7096 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDCEA2B2632FF9B008A7096 /* SourceEditorExtension.swift */; };
 		6DDCEA2E2632FF9B008A7096 /* PropertyGetCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDCEA2D2632FF9B008A7096 /* PropertyGetCommand.swift */; };
 		6DDCEA332632FF9B008A7096 /* GMLXcodePlugin.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6DDCEA242632FF9B008A7096 /* GMLXcodePlugin.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		6DDCEA60263308D8008A7096 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDCEA5626330848008A7096 /* XcodeKit.framework */; };
-		6DDCEA61263308D8008A7096 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDCEA5626330848008A7096 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		18A2FDA726355FCC004D555E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				18A2FDA626355FCB004D555E /* XcodeKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6DDCEA372632FF9B008A7096 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -62,20 +76,12 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6DDCEA62263308D8008A7096 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				6DDCEA61263308D8008A7096 /* XcodeKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18A2FD8F263559A2004D555E /* CreationCodeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationCodeHelper.swift; sourceTree = "<group>"; };
+		18A2FD96263559FD004D555E /* CreationCodeHelper+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreationCodeHelper+UIKit.swift"; sourceTree = "<group>"; };
+		18A2FDAE26357E9F004D555E /* AddCodeConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCodeConfiguration.swift; sourceTree = "<group>"; };
 		6D3E623E2633A6B0007BDAE5 /* PropertyMethodBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyMethodBuilder.swift; sourceTree = "<group>"; };
 		6D3E62472633AA35007BDAE5 /* PropertyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyModel.swift; sourceTree = "<group>"; };
 		6D3EBA1C263443B300111706 /* GMLStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GMLStringExtension.swift; path = GMLFoundationExtension/GMLFoundationExtension/Classes/StringExtension/GMLStringExtension.swift; sourceTree = "<group>"; };
@@ -130,18 +136,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DDCEA272632FF9B008A7096 /* Cocoa.framework in Frameworks */,
-				6DDCEA60263308D8008A7096 /* XcodeKit.framework in Frameworks */,
+				18A2FDA526355FCB004D555E /* XcodeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18A2FD94263559AA004D555E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				18A2FD95263559B4004D555E /* MethodBuilder */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		18A2FD95263559B4004D555E /* MethodBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				18A2FD8F263559A2004D555E /* CreationCodeHelper.swift */,
+				18A2FD96263559FD004D555E /* CreationCodeHelper+UIKit.swift */,
+			);
+			path = MethodBuilder;
+			sourceTree = "<group>";
+		};
 		6D3E62462633AA20007BDAE5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				6D3E62472633AA35007BDAE5 /* PropertyModel.swift */,
 				6D65C381263473D7001ED7F1 /* XCSourceTextRangeExtension.swift */,
+				18A2FDAE26357E9F004D555E /* AddCodeConfiguration.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,6 +240,7 @@
 			children = (
 				6DDCEA2B2632FF9B008A7096 /* SourceEditorExtension.swift */,
 				6DDCEA2D2632FF9B008A7096 /* PropertyGetCommand.swift */,
+				18A2FD94263559AA004D555E /* Helper */,
 				6D3E62462633AA20007BDAE5 /* Model */,
 				6DDCEA4D263307A1008A7096 /* ClassService */,
 				6DDCEA2F2632FF9B008A7096 /* Info.plist */,
@@ -297,7 +322,7 @@
 				6DDCEA202632FF9B008A7096 /* Sources */,
 				6DDCEA212632FF9B008A7096 /* Frameworks */,
 				6DDCEA222632FF9B008A7096 /* Resources */,
-				6DDCEA62263308D8008A7096 /* Embed Frameworks */,
+				18A2FDA726355FCC004D555E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -420,7 +445,10 @@
 				6DDCEA2C2632FF9B008A7096 /* SourceEditorExtension.swift in Sources */,
 				6D3E62482633AA35007BDAE5 /* PropertyModel.swift in Sources */,
 				6D3EBA3E26345D1A00111706 /* StringExtension.swift in Sources */,
+				18A2FDAF26357E9F004D555E /* AddCodeConfiguration.swift in Sources */,
 				6D65C382263473D7001ED7F1 /* XCSourceTextRangeExtension.swift in Sources */,
+				18A2FD97263559FD004D555E /* CreationCodeHelper+UIKit.swift in Sources */,
+				18A2FD90263559A2004D555E /* CreationCodeHelper.swift in Sources */,
 				6D3E623F2633A6B0007BDAE5 /* PropertyMethodBuilder.swift in Sources */,
 				6DDCEA2E2632FF9B008A7096 /* PropertyGetCommand.swift in Sources */,
 				6D3EBA24263444B800111706 /* GMLStringExtension.swift in Sources */,
@@ -716,7 +744,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.YM.GMLXcodeTool.GMLXcodePlugin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -738,7 +766,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.YM.GMLXcodeTool.GMLXcodePlugin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

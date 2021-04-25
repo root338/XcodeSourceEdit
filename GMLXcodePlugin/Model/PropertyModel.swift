@@ -51,10 +51,31 @@ struct PropertyItem {
     let className : String
     let existPointerMark : Bool
     let name : String
+    
+    func toOC() -> PropertyInfoModel {
+        return PropertyInfoModel(units: unit?.rawValueSet,
+                                 className: className,
+                                 existPointerMark: existPointerMark,
+                                 name: name)
+    }
 }
 
 struct PropertyMethod {
     let item: PropertyItem
     var getMethod: String?
     var setMethod: String?
+}
+
+class PropertyInfoModel : NSObject {
+    let units: Set<String>?
+    let mClassName : String
+    let existPointerMark : Bool
+    let name : String
+    init(units: Set<String>?, className: String, existPointerMark: Bool, name: String) {
+        self.units = units
+        self.mClassName = className
+        self.existPointerMark = existPointerMark
+        self.name = name
+        super.init()
+    }
 }
