@@ -82,13 +82,13 @@ fileprivate extension PropertyMethodBuilder {
 
 fileprivate extension PropertyMethodBuilder {
     /// 解析属性内部有哪些内容
-    func analysisProperty(content: String) -> PropertyItem? {
+    func analysisProperty(content: String) -> PropertyStruct? {
         var text = content.deleteBlankCharacter
         text.removeLast()
         
-        var propertyUnits : PropertyItem.PropertyUnit?
+        var propertyUnits : PropertyStruct.Unit?
         func insert(unit: String) {
-            let propertyUnit = PropertyItem.PropertyUnit(rawValue: unit)
+            let propertyUnit = PropertyStruct.Unit(rawValue: unit)
             if propertyUnits == nil {
                 propertyUnits = propertyUnit
             }else {
@@ -121,11 +121,11 @@ fileprivate extension PropertyMethodBuilder {
             className = _className
             name = _name
         }
-        return PropertyItem(unit: propertyUnits, className: className.deleteBlankCharacter, existPointerMark: existPointerMark, name: name.deleteBlankCharacter)
+        return PropertyStruct(unit: propertyUnits, className: className.deleteBlankCharacter, existPointerMark: existPointerMark, name: name.deleteBlankCharacter)
     }
     /// 获取属性
-    func selectionProperty(content: String) -> [PropertyItem] {
-        var items = [PropertyItem]()
+    func selectionProperty(content: String) -> [PropertyStruct] {
+        var items = [PropertyStruct]()
         findPropertyRE.enumerateMatches(in: content, options: .reportProgress, range: content.rangeAll) { (result, flag, pointer) in
             guard let textResult = result,
                   let propertyText = content.substring(range: textResult.range),
@@ -140,7 +140,7 @@ fileprivate extension PropertyMethodBuilder {
     typealias CreationCodeMethodType = @convention(c) (AnyObject, Selector, Any?) -> String
 
     /// 生成get方法
-    func builderGetMethod(items: [PropertyItem], spaceCharactersCount: Int) -> (methods: [PropertyMethod], fullMethodText: String) {
+    func builderGetMethod(items: [PropertyStruct], spaceCharactersCount: Int) -> (methods: [PropertyMethod], fullMethodText: String) {
         if items.count == 0 { return ([], "") }
         var methods = [PropertyMethod]()
         var methodText = String()

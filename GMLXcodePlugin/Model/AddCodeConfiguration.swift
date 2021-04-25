@@ -19,5 +19,6 @@ enum AddCodePosition {
 }
 
 struct AddCodeConfiguration {
+    let position = AddCodePosition.cursorLine
     
 }

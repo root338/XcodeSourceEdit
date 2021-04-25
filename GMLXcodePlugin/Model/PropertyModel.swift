@@ -1,5 +1,5 @@
 //
-//  PropertyItem.swift
+//  PropertyStruct.swift
 //  GMLXcodePlugin
 //
 //  Created by GML on 2021/4/24.
@@ -7,61 +7,63 @@
 
 import Foundation
 
-struct PropertyItem {
-    struct PropertyUnit : OptionSet {
-        var rawValue: String
-        var rawValueSet: Set<String>
-        mutating func formUnion(_ other: __owned PropertyItem.PropertyUnit) {
-            
-            rawValueSet.formUnion(other.rawValueSet)
+struct PropertyStruct {
+    struct Unit : OptionSet {
+        var rawValue: String {
+            return rawValueSet.joined(separator: ", ")
         }
+        private(set) var rawValueSet: Set<String>
         
-        mutating func formIntersection(_ other: PropertyItem.PropertyUnit) {
-            rawValueSet.formIntersection(other.rawValueSet)
-        }
-        
-        mutating func formSymmetricDifference(_ other: __owned PropertyItem.PropertyUnit) {
-            rawValueSet.formSymmetricDifference(other.rawValueSet)
-        }
-        func contains(_ member: PropertyItem.PropertyUnit) -> Bool {
-            return rawValueSet.isSuperset(of: member.rawValueSet)
-        }
+        static var atomic = Unit(rawValue: "atomic")
+        static var nonatomic = Unit(rawValue: "nonatomic")
+        static var copy = Unit(rawValue: "copy")
+        static var strong = Unit(rawValue: "strong")
+        static var assgin = Unit(rawValue: "assgin")
+        static var weak = Unit(rawValue: "weak")
+        static var nullable = Unit(rawValue: "nullable")
+        static var readonly = Unit(rawValue: "readonly")
+        static var readwrite = Unit(rawValue: "readwrite")
         
         init() {
             self.init(rawValue: "")
         }
         
         init(rawValue: String) {
-            self.rawValue = rawValue
             rawValueSet = Set(arrayLiteral: rawValue)
         }
         
-        static var atomic = PropertyUnit(rawValue: "atomic")
-        static var nonatomic = PropertyUnit(rawValue: "nonatomic")
-        static var copy = PropertyUnit(rawValue: "copy")
-        static var strong = PropertyUnit(rawValue: "strong")
-        static var assgin = PropertyUnit(rawValue: "assgin")
-        static var weak = PropertyUnit(rawValue: "weak")
-        static var nullable = PropertyUnit(rawValue: "nullable")
-        static var readonly = PropertyUnit(rawValue: "readonly")
-        static var readwrite = PropertyUnit(rawValue: "readwrite")
+        //MARK:- SetAlgebra
+        mutating func formUnion(_ other: __owned PropertyStruct.Unit) {
+            rawValueSet.formUnion(other.rawValueSet)
+        }
+        mutating func formIntersection(_ other: PropertyStruct.Unit) {
+            rawValueSet.formIntersection(other.rawValueSet)
+        }
+        mutating func formSymmetricDifference(_ other: __owned PropertyStruct.Unit) {
+            rawValueSet.formSymmetricDifference(other.rawValueSet)
+        }
+        func contains(_ member: PropertyStruct.Unit) -> Bool {
+            return rawValueSet.isSuperset(of: member.rawValueSet)
+        }
     }
     
-    let unit : PropertyUnit?
+    let unit : Unit?
     let className : String
     let existPointerMark : Bool
     let name : String
     
     func toOC() -> PropertyInfoModel {
-        return PropertyInfoModel(units: unit?.rawValueSet,
-                                 className: className,
-                                 existPointerMark: existPointerMark,
-                                 name: name)
+        return PropertyInfoModel(
+            units: unit?.rawValueSet,
+            className: className,
+            existPointerMark: existPointerMark,
+            name: name
+        )
     }
 }
 
 struct PropertyMethod {
-    let item: PropertyItem
+    let item: PropertyStruct
     var getMethod: String?
     var setMethod: String?
 }
