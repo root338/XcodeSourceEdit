@@ -31,10 +31,25 @@ extension PropertyMethodBuilder {
         var methodText = String()
         
         func propertyGetMethod(text: String) {
-            methodText.append(builderGetMethod(
-                items: selectionProperty(content: text),
-                spaceCharactersCount: buffer.tabWidth
-            ).fullMethodText)
+            _ = OCFileAnalysisService().fileInfo(
+                content: text, configuration: FileAnalysisConfiguration(
+                    import: nil,
+                    globalVariable: nil,
+                    macro: nil,
+                    typeDeclaration: nil,
+                    typedef: nil,
+                    protocol: nil,
+                    class: ClassAnalysisConfiguration(
+                        isGetClassInfo: true,
+                        propertyAnalysisConfiguration: nil,
+                        methodAnalysisConfiguration: nil
+                    )
+                )
+            )
+//            methodText.append(builderGetMethod(
+//                items: selectionProperty(content: text),
+//                spaceCharactersCount: buffer.tabWidth
+//            ).fullMethodText)
         }
         
         if buffer.selections.count > 0,

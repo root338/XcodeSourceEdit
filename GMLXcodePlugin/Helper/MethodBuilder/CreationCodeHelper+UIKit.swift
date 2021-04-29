@@ -64,7 +64,7 @@ extension CreationCodeHelper {
         let name = "_\(item.name)"
         let code = """
         \(name) = \(item.mClassName).new;
-        \(name).layer.cornerRadius = 4;
+        \(name).layer.cornerRadius = <#4#>;
         \(name).backgroundColor = [UIColor ym_colorWithValue:0xF6F6F6];
         """
         return code

@@ -1,3 +1,6 @@
 [submodule "GMLFoundationExtension"]
 	path = GMLFoundationExtension
 	url = git@github.com:root338/GMLFoundationExtension.git
+[submodule "GMLClassAnalysis"]
+	path = GMLClassAnalysis
+	url = /Users/ml/dev/GMLClassAnalysis
