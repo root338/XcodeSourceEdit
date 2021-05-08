@@ -9,14 +9,8 @@ import Foundation
 import XcodeKit
 
 class PropertyMethodBuilder: NSObject {
-    lazy var findPropertyRE: NSRegularExpression = {
-        let pattern = "@property[^;]*;"
-        return try! NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options(rawValue: 0))
-    }()
-    lazy var findPropertyUnitRE: NSRegularExpression = {
-        let pattern = "\\([^\\)\\(]+\\)"
-        return try! NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options(rawValue: 0))
-    }()
+    lazy var analysisService = OCFileAnalysisService()
+    lazy var searchTextService = SearchTextRangeService()
     lazy var codeHelper = CreationCodeHelper()
     
     convenience init(config: (Self) -> Void) {
@@ -28,11 +22,10 @@ class PropertyMethodBuilder: NSObject {
 extension PropertyMethodBuilder {
     func builderGetMethod(invocation: XCSourceEditorCommandInvocation) throws {
         let buffer = invocation.buffer
-        var methodText = String()
-        
         func propertyGetMethod(text: String) {
-            _ = OCFileAnalysisService().fileInfo(
-                content: text, configuration: FileAnalysisConfiguration(
+            let (info, _) = analysisService.fileInfo(
+                content: text,
+                configuration: FileAnalysisConfiguration(
                     import: nil,
                     globalVariable: nil,
                     macro: nil,
@@ -41,17 +34,38 @@ extension PropertyMethodBuilder {
                     protocol: nil,
                     class: ClassAnalysisConfiguration(
                         isGetClassInfo: true,
-                        propertyAnalysisConfiguration: nil,
-                        methodAnalysisConfiguration: nil
+                        property: PropertyAnalysisConfiguration(),
+                        method: nil
                     )
                 )
             )
-//            methodText.append(builderGetMethod(
-//                items: selectionProperty(content: text),
-//                spaceCharactersCount: buffer.tabWidth
-//            ).fullMethodText)
+            if info.classStructs.count == 0 {
+                let propertyInfo = analysisService.propertyStruct(content: text, configuration: PropertyAnalysisConfiguration())
+                buffer.completeBuffer.append(
+                    builderGetMethod(
+                        items: transform(obj: propertyInfo) { $0.info },
+                        spaceCharactersCount: buffer.tabWidth
+                    ).fullMethodText
+                )
+            }else {
+                let propertyDict = analysisService.mergeProperty(list: info.classStructs) { $0.info }
+                for (className, propertys) in propertyDict {
+                    searchTextService.classEndIndex(
+                        content: text,
+                        fileStruct: info) { (classStruct, _) in
+                        guard let classInfo = classStruct?.info else { return false }
+                        return classInfo.type == .implementation && classInfo.className == className
+                    } result: { (classStruct, index) -> Bool in
+                        let (_, text) = builderGetMethod(
+                            items: transform(obj: propertys, analysisProperty: { $0 }),
+                            spaceCharactersCount: buffer.tabWidth)
+                        buffer.completeBuffer.insert(contentsOf: text, at: index)
+                        return false
+                    }
+                }
+                
+            }
         }
-        
         if buffer.selections.count > 0,
            buffer.selections.count == 1
             && !(buffer.selections.firstObject as! XCSourceTextRange).unselectedCharacters {
@@ -62,11 +76,9 @@ extension PropertyMethodBuilder {
         }else {
             propertyGetMethod(text: buffer.completeBuffer)
         }
-        if methodText.count == 0 { return }
-        buffer.completeBuffer.append(methodText)
     }
 }
-
+//MARK:- Handle File
 fileprivate extension PropertyMethodBuilder {
     /// 获取选择的文本数组
     func selectContentText(invocation: XCSourceEditorCommandInvocation) -> [String]? {
@@ -94,68 +106,14 @@ fileprivate extension PropertyMethodBuilder {
         return selectTexts
     }
 }
-
+//MARK:- Method Builder
 fileprivate extension PropertyMethodBuilder {
-    /// 解析属性内部有哪些内容
-    func analysisProperty(content: String) -> PropertyStruct? {
-        var text = content.deleteBlankCharacter
-        text.removeLast()
-        
-        var propertyUnits : PropertyStruct.Unit?
-        func insert(unit: String) {
-            let propertyUnit = PropertyStruct.Unit(rawValue: unit)
-            if propertyUnits == nil {
-                propertyUnits = propertyUnit
-            }else {
-                propertyUnits?.insert(propertyUnit)
-            }
-        }
-        if let result = findPropertyUnitRE.firstMatch(in: text, options: .reportProgress, range: text.rangeAll),
-           let unitText = text.substring(range: result.range)?.substring(startOffset: 1, endOffset: 1) {
-            let units = unitText.split(separator: ",")
-            for unit in units {
-                let onlyUnit = unit.trimmingCharacters(in: .whitespacesAndNewlines)
-                if onlyUnit.count == 0 { continue }
-                insert(unit: onlyUnit)
-            }
-            guard let substring = text.substring(from: result.range.upperBound)?.deleteBlankCharacter else { return nil }
-            text = substring
-        }
-        let existPointerMark: Bool
-        let className: String
-        let name: String
-        if var pointerIndex = text.firstIndex(of: "*") {
-            existPointerMark = true
-            className = String(text[text.startIndex..<pointerIndex])
-            text.formIndex(&pointerIndex, offsetBy: 1)
-            name = String(text[pointerIndex..<text.endIndex])
-        }else {
-            existPointerMark = false
-            guard let _className = text.substring(to: " ", includeMark: false) else { return nil }
-            guard let _name = text.substring(from: " ", includeMark: false) else { return nil }
-            className = _className
-            name = _name
-        }
-        return PropertyStruct(unit: propertyUnits, className: className.deleteBlankCharacter, existPointerMark: existPointerMark, name: name.deleteBlankCharacter)
-    }
-    /// 获取属性
-    func selectionProperty(content: String) -> [PropertyStruct] {
-        var items = [PropertyStruct]()
-        findPropertyRE.enumerateMatches(in: content, options: .reportProgress, range: content.rangeAll) { (result, flag, pointer) in
-            guard let textResult = result,
-                  let propertyText = content.substring(range: textResult.range),
-                  let item = analysisProperty(content: propertyText)
-            else { return }
-            items.append(item)
-        }
-        return items
-    }
     
     // IMP 方法类型声明
     typealias CreationCodeMethodType = @convention(c) (AnyObject, Selector, Any?) -> String
 
     /// 生成get方法
-    func builderGetMethod(items: [PropertyStruct], spaceCharactersCount: Int) -> (methods: [PropertyMethod], fullMethodText: String) {
+    func builderGetMethod(items: [PropertyDetailInfo], spaceCharactersCount: Int) -> (methods: [PropertyMethod], fullMethodText: String) {
         if items.count == 0 { return ([], "") }
         var methods = [PropertyMethod]()
         var methodText = String()
@@ -206,28 +164,27 @@ fileprivate extension PropertyMethodBuilder {
         for item in items {
             
             let isClass = item.existPointerMark
-            let _name = "_\(item.name)"
+            let _name = item.instanceVariableName
             let method = addMethod()
             method.addLine(0) { "\n- (\(item.className)\(item.existPointerMark ? " *" : ""))\(item.name) {" }
             method.addLine(1) { "\(isClass ? "" : "<#")" }
             method.writeLine { "if (\(_name) == nil)\(isClass ? "" : "#>") {" }
             
-            let selector = NSSelectorFromString("get\(item.className)CreationCode:")
+            let selector = NSSelectorFromString("get\(item.actualClassName)CreationCode:")
             if codeHelper.responds(to: selector) {
                 let setMethod = unsafeBitCast(codeHelper.method(for: selector), to: CreationCodeMethodType.self)
                 let code = setMethod(codeHelper, selector, item.toOC())
                 method.addLine(0) { config(code: code, tabCount: 2) }
             }else {
-                method.addLine(2) { "<#\(_name) = [\(item.className) ];#>" }
+                method.addLine(2) { "<#\(_name) = \(item.actualClassName).new;#>" }
             }
             method.addLine(1) { "}" }
-            method.addLine(0) { "}" }
+            method.addLine(0) { "}\n" }
             methods.append(PropertyMethod(item: item, getMethod: method.text(), setMethod: nil))
             methodText.append(method.text())
         }
         return (methods, methodText)
     }
-    
     
     /**
      static inline id _MASBoxValue(const char *type, ...) {
@@ -290,4 +247,28 @@ fileprivate extension PropertyMethodBuilder {
          return obj;
      }
      */
+}
+//MARK:- Property Info
+fileprivate extension PropertyMethodBuilder {
+    func transform<T>(obj: [T], analysisProperty: (T) -> PropertyInfo?) -> [PropertyDetailInfo] {
+        var arr = [PropertyDetailInfo]()
+        for item in obj {
+            guard let propertyInfo = analysisProperty(item),
+                  propertyInfo.className != nil,
+                  propertyInfo.isExistPointerMark != nil
+            else { continue }
+            arr.append(
+                PropertyDetailInfo(
+                    unit: propertyInfo.unit ?? [],
+                    className: propertyInfo.className!,
+                    declarClassName: propertyInfo.declarClassName,
+                    actualClassName: propertyInfo.actualClassName!,
+                    existPointerMark: propertyInfo.isExistPointerMark!,
+                    name: propertyInfo.name,
+                    instanceVariableName: propertyInfo.instanceVariableName ?? "_\(propertyInfo.name)"
+                )
+            )
+        }
+        return arr
+    }
 }

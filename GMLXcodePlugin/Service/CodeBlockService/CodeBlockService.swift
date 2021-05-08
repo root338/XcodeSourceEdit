@@ -19,7 +19,7 @@ class CodeBlockService: NSObject {
 }
 
 extension CodeBlockService {
-//    func builderMethod(_ item: PropertyStruct, setCodeBlock: () -> Void) -> String {
+//    func builderMethod(_ item: PropertyDetailInfo, setCodeBlock: () -> Void) -> String {
 //        
 //    }
 }

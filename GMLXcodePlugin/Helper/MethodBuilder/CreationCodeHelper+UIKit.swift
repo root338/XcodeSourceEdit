@@ -12,21 +12,21 @@ import Foundation
 extension CreationCodeHelper {
     @objc func getUIViewCreationCode(_ item: PropertyInfoModel) -> String {
         let code = """
-            _\(item.name) = \(item.mClassName).new;
+            _\(item.name) = \(item.actualClassName).new;
             _\(item.name).backgroundColor = UIColor.whiteColor;
             """
         return code
     }
     @objc func getUIButtonCreationCode(_ item: PropertyInfoModel) -> String {
         let code = """
-        _\(item.name) = [\(item.mClassName) buttonWithType:<#UIButtonTypeCustom#>];
+        _\(item.name) = [\(item.actualClassName) buttonWithType:<#UIButtonTypeCustom#>];
         [_\(item.name) addTarget:self action:@selector(<#selector#>) forControlEvents:UIControlEventTouchUpInside];
         """
         return code
     }
     @objc func getUIImageViewCreationCode(_ item: PropertyInfoModel) -> String {
         let code = """
-        _\(item.name) = [[\(item.mClassName) alloc] initWithImage:[UIImage imageNamed:<#(nonnull NSString *)#>]];
+        _\(item.name) = [[\(item.actualClassName) alloc] initWithImage:[UIImage imageNamed:<#(nonnull NSString *)#>]];
         """
         return code
     }
@@ -38,7 +38,7 @@ extension CreationCodeHelper {
         flowLayout.itemSize = CGSizeMake(<#CGFloat width#>, <#CGFloat height#>);
         <#flowLayout.minimumLineSpacing = ;#>
         <#flowLayout.minimumInteritemSpacing = ;#>
-        _\(item.name) = [[\(item.mClassName) alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        _\(item.name) = [[\(item.actualClassName) alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
         _\(item.name).backgroundColor = UIColor.whiteColor;
         _\(item.name).delegate = <#self#>;
         _\(item.name).dataSource = <#self#>;
@@ -52,7 +52,7 @@ extension CreationCodeHelper {
     // 增加了 UILabel+CGCreateCustomLabel 扩展文件
     @objc func getUILabelCreationCode(_ item: PropertyInfoModel) -> String {
         let code = """
-        _\(item.name) = [\(item.mClassName) cg_createLabelWithFont:<#[UIFont ym_fontWithSize:12]#><#[UIFont systemFontOfSize:16 weight:UIFontWeightMedium]#> textColor:<#[UIColor ym_colorWithValue:0x666666]#>];
+        _\(item.name) = [\(item.actualClassName) cg_createLabelWithFont:<#[UIFont ym_fontWithSize:12]#><#[UIFont systemFontOfSize:16 weight:UIFontWeightMedium]#> textColor:<#[UIColor ym_colorWithValue:0x666666]#>];
         """
         return code
     }
@@ -63,7 +63,7 @@ extension CreationCodeHelper {
     @objc func getYMImageViewCreationCode(_ item: PropertyInfoModel) -> String {
         let name = "_\(item.name)"
         let code = """
-        \(name) = \(item.mClassName).new;
+        \(name) = \(item.actualClassName).new;
         \(name).layer.cornerRadius = <#4#>;
         \(name).backgroundColor = [UIColor ym_colorWithValue:0xF6F6F6];
         """
